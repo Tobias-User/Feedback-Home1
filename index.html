@@ -42,6 +42,7 @@
     }
 
     input[type="text"],
+    input[type="email"],
     textarea,
     select {
       width: 100%;
@@ -84,6 +85,10 @@
     <h1>STAY FEEDBACK</h1>
     <form action="https://api.web3forms.com/submit" method="POST">
       <input type="hidden" name="access_key" value="adbf15fd-9426-45d3-bf64-b9361b4a9179">
+
+      <!-- Email Input -->
+      <label>Your Email Address (optional)</label>
+      <input type="email" name="email" placeholder="example@email.com">
 
       <label>How would you rate your overall stay?</label>
       <div class="options">
