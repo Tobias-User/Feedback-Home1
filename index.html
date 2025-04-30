@@ -133,7 +133,7 @@
   <script>
     document.getElementById('feedback-form').addEventListener('submit', function(e) {
       const email = document.querySelector('input[name="email"]').value.trim();
-      const emailPattern = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!email || !emailPattern.test(email)) {
         alert('Please enter a valid email address.');
         e.preventDefault();
