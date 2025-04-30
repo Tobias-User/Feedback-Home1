@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stay Feedback</title>
+  <style>
+    body {
+      background-color: #749176;
+      font-family: 'Arial', sans-serif;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    .form-container {
+      background-color: #8DAA8D;
+      padding: 40px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 500px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 1.4em;
+      letter-spacing: 2px;
+      border: 1px solid #fff;
+      display: inline-block;
+      padding: 5px 15px;
+    }
+
+    label {
+      display: block;
+      margin: 20px 0 5px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .options {
+      margin: 10px 0;
+    }
+
+    .options input {
+      margin-right: 10px;
+    }
+
+    button {
+      background-color: #ffffff;
+      color: #749176;
+      border: none;
+      padding: 10px 20px;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-top: 20px;
+      width: 100%;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.85em;
+      letter-spacing: 1px;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h1>STAY FEEDBACK</h1>
+    <form action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="adbf15fd-9426-45d3-bf64-b9361b4a9179">
+
+      <label>How would you rate your overall stay?</label>
+      <div class="options">
+        <label><input type="radio" name="overall_rating" value="Excellent"> Excellent</label><br>
+        <label><input type="radio" name="overall_rating" value="Good"> Good</label><br>
+        <label><input type="radio" name="overall_rating" value="Average"> Average</label><br>
+        <label><input type="radio" name="overall_rating" value="Poor"> Poor</label>
+      </div>
+
+      <label>What did you like the most about your stay?</label>
+      <textarea name="liked_most" rows="3" required></textarea>
+
+      <label>What could we improve for future guests?</label>
+      <textarea name="improvements" rows="3"></textarea>
+
+      <label>Was the check-in process smooth and easy?</label>
+      <div class="options">
+        <label><input type="radio" name="checkin" value="Yes"> Yes</label>
+        <label><input type="radio" name="checkin" value="No"> No</label>
+      </div>
+      <textarea name="checkin_explain" placeholder="If no, please explain" rows="2"></textarea>
+
+      <label>Was the apartment/property clean and well-prepared?</label>
+      <div class="options">
+        <label><input type="radio" name="clean" value="Yes"> Yes</label>
+        <label><input type="radio" name="clean" value="No"> No</label>
+      </div>
+      <textarea name="clean_explain" placeholder="If no, please explain" rows="2"></textarea>
+
+      <label>Any suggestions or ideas for us?</label>
+      <textarea name="suggestions" rows="3"></textarea>
+
+      <label>Would you stay with us again or recommend us to others?</label>
+      <div class="options">
+        <label><input type="radio" name="recommend" value="Yes"> Yes</label>
+        <label><input type="radio" name="recommend" value="No"> No</label>
+      </div>
+      <textarea name="recommend_explain" placeholder="If no, please explain" rows="2"></textarea>
+
+      <button type="submit">Send Feedback</button>
+    </form>
+    <div class="footer">THANK YOU FOR YOUR FEEDBACK</div>
+  </div>
+</body>
+</html>
