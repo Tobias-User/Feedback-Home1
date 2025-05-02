@@ -1,162 +1,165 @@
 <!DOCTYPE html>
- <html lang="en">
- <head>
-   <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Open+Sans&display=swap" rel="stylesheet">
-   <meta charset="UTF-8" />
-   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-   <title>Stay Feedback</title>
-   <style>
-     body {
-       background-color: #749176;
-       font-family: 'Open Sans', sans-serif;
-       color: #fff;
-       display: flex;
-       justify-content: center;
-       align-items: center;
-       min-height: 100vh;
-       margin: 0;
-     }
-     .form-container {
-       background-color: #8DAA8D;
-       padding: 40px;
-       border-radius: 10px;
-       width: 90%;
-       max-width: 500px;
-       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-     }
-     h1 {
-       font-family: 'Cinzel', serif;
-       text-align: center;
-       margin-bottom: 30px;
-       font-size: 1.4em;
-       letter-spacing: 2px;
-       border: 1px solid #fff;
-       display: inline-block;
-       padding: 5px 15px;
-     }
-     label {
-       display: block;
-       margin: 20px 0 5px;
-       font-weight: bold;
-     }
-     input[type="text"],
-     input[type="email"],
-     textarea,
-     select {
-       width: 100%;
-       padding: 8px;
-       margin-bottom: 10px;
-       border: none;
-       border-radius: 5px;
-     }
-     .options {
-       margin: 10px 0;
-     }
-     .options label {
-       display: block;
-     }
-     .options input {
-       margin-right: 10px;
-     }
-     button {
-       background-color: #ffffff;
-       color: #749176;
-       border: none;
-       padding: 10px 20px;
-       font-weight: bold;
-       cursor: pointer;
-       border-radius: 5px;
-       margin-top: 20px;
-       width: 100%;
-     }
-     .footer {
-       text-align: center;
-       margin-top: 30px;
-       font-size: 2em;
-       letter-spacing: 1px;
-     }
-   </style>
- </head>
- <body>
-   <div class="form-container">
-     <h1>STAY FEEDBACK</h1>
-     <form id="feedback-form" action="https://api.web3forms.com/submit" method="POST">
-       <input type="hidden" name="access_key" value="2e97094c-9381-4c67-94c9-88ff2e60111b" />
- 
-       <label>Your Email</label>
-       <input type="email" name="email" required placeholder="Enter your email">
- 
-       <label>How would you rate your overall stay?</label>
-       <div class="options">
-         <label><input type="radio" name="overall_rating" value="Excellent" required> Excellent</label>
-         <label><input type="radio" name="overall_rating" value="Good"> Good</label>
-         <label><input type="radio" name="overall_rating" value="Average"> Average</label>
-         <label><input type="radio" name="overall_rating" value="Poor"> Poor</label>
-       </div>
- 
-       <label>What did you like the most about your stay?</label>
-       <textarea name="liked_most" rows="3" required></textarea>
- 
-       <label>What could we improve for future guests?</label>
-       <textarea name="improvements" rows="3" required></textarea>
- 
-       <label>Was the check-in process smooth and easy?</label>
-       <div class="options">
-         <label><input type="radio" name="checkin" value="Yes" required> Yes</label>
-         <label><input type="radio" name="checkin" value="No"> No</label>
-       </div>
-       <textarea name="checkin_explain" placeholder="If no, please explain" rows="2"></textarea>
- 
-       <label>Was the apartment/property clean and well-prepared?</label>
-       <div class="options">
-         <label><input type="radio" name="clean" value="Yes" required> Yes</label>
-         <label><input type="radio" name="clean" value="No"> No</label>
-       </div>
-       <textarea name="clean_explain" placeholder="If no, please explain" rows="2"></textarea>
- 
-       <label>Any suggestions or ideas for us?</label>
-       <textarea name="suggestions" rows="3" required></textarea>
- 
-       <label>Would you stay with us again or recommend us to others?</label>
-       <div class="options">
-         <label><input type="radio" name="recommend" value="Yes" required> Yes</label>
-         <label><input type="radio" name="recommend" value="No"> No</label>
-       </div>
-       <textarea name="recommend_explain" placeholder="If no, please explain" rows="2"></textarea>
- 
-       <button type="submit">Send Feedback</button>
-     </form>
-     <div class="footer">THANK YOU FOR YOUR FEEDBACK</div>
-     <img src="Home1.png" alt="Home1 Logo" class="logo">
-   </div>
- 
-   <script>
-     document.getElementById('feedback-form').addEventListener('submit', function(e) {
-       const email = document.querySelector('input[name="email"]').value.trim();
-       const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-       if (!email || !emailPattern.test(email)) {
-         alert('Please enter a valid email address.');
-         e.preventDefault();
-         return;
-       }
- 
-       const fieldsToValidate = [
-         { radio: 'checkin', explain: 'checkin_explain', message: 'Please explain the check-in issue.' },
-         { radio: 'clean', explain: 'clean_explain', message: 'Please explain the cleanliness issue.' },
-         { radio: 'recommend', explain: 'recommend_explain', message: 'Please explain why you would not recommend us.' },
-       ];
- 
-       for (let field of fieldsToValidate) {
-         const noChecked = document.querySelector(`input[name="${field.radio}"][value="No"]:checked`);
-         const explanation = document.querySelector(`textarea[name="${field.explain}"]`);
-         if (noChecked && explanation.value.trim() === '') {
-           alert(field.message);
-           explanation.focus();
-           e.preventDefault();
-           return;
-         }
-       }
-     });
-   </script>
- </body>
- </html>
+<html lang="en">
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Open+Sans&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Stay Feedback</title>
+  <style>
+    body {
+      background-color: #749176;
+      font-family: 'Open Sans', sans-serif;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+    .form-container {
+      background-color: #8DAA8D;
+      padding: 40px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 500px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    h1 {
+      font-family: 'Cinzel', serif;
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 1.4em;
+      letter-spacing: 2px;
+      border: 1px solid #fff;
+      display: inline-block;
+      padding: 5px 15px;
+    }
+    label {
+      display: block;
+      margin: 20px 0 5px;
+      font-weight: bold;
+    }
+    input[type="text"],
+    input[type="email"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: none;
+      border-radius: 5px;
+    }
+    .options {
+      margin: 10px 0;
+    }
+    .options label {
+      display: block;
+    }
+    .options input {
+      margin-right: 10px;
+    }
+    button {
+      background-color: #ffffff;
+      color: #749176;
+      border: none;
+      padding: 10px 20px;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-top: 20px;
+      width: 100%;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 2em;
+      letter-spacing: 1px;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h1>STAY FEEDBACK</h1>
+    <form id="feedback-form" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="2e97094c-9381-4c67-94c9-88ff2e60111b" />
+
+      <label>Your Email</label>
+      <input type="email" name="email" required placeholder="Enter your email">
+
+      <label>Which property are you staying in? (e.g., Smart Living)</label>
+      <input type="text" name="property" required placeholder="Enter the property name">
+
+      <label>How would you rate your overall stay?</label>
+      <div class="options">
+        <label><input type="radio" name="overall_rating" value="Excellent" required> Excellent</label>
+        <label><input type="radio" name="overall_rating" value="Good"> Good</label>
+        <label><input type="radio" name="overall_rating" value="Average"> Average</label>
+        <label><input type="radio" name="overall_rating" value="Poor"> Poor</label>
+      </div>
+
+      <label>What did you like the most about your stay?</label>
+      <textarea name="liked_most" rows="3" required></textarea>
+
+      <label>What could we improve for future guests?</label>
+      <textarea name="improvements" rows="3" required></textarea>
+
+      <label>Was the check-in process smooth and easy?</label>
+      <div class="options">
+        <label><input type="radio" name="checkin" value="Yes" required> Yes</label>
+        <label><input type="radio" name="checkin" value="No"> No</label>
+      </div>
+      <textarea name="checkin_explain" placeholder="If no, please explain" rows="2"></textarea>
+
+      <label>Was the apartment/property clean and well-prepared?</label>
+      <div class="options">
+        <label><input type="radio" name="clean" value="Yes" required> Yes</label>
+        <label><input type="radio" name="clean" value="No"> No</label>
+      </div>
+      <textarea name="clean_explain" placeholder="If no, please explain" rows="2"></textarea>
+
+      <label>Any suggestions or ideas for us?</label>
+      <textarea name="suggestions" rows="3" required></textarea>
+
+      <label>Would you stay with us again or recommend us to others?</label>
+      <div class="options">
+        <label><input type="radio" name="recommend" value="Yes" required> Yes</label>
+        <label><input type="radio" name="recommend" value="No"> No</label>
+      </div>
+      <textarea name="recommend_explain" placeholder="If no, please explain" rows="2"></textarea>
+
+      <button type="submit">Send Feedback</button>
+    </form>
+    <div class="footer">THANK YOU FOR YOUR FEEDBACK</div>
+    <img src="Home1.png" alt="Home1 Logo" class="logo">
+  </div>
+
+  <script>
+    document.getElementById('feedback-form').addEventListener('submit', function(e) {
+      const email = document.querySelector('input[name="email"]').value.trim();
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!email || !emailPattern.test(email)) {
+        alert('Please enter a valid email address.');
+        e.preventDefault();
+        return;
+      }
+
+      const fieldsToValidate = [
+        { radio: 'checkin', explain: 'checkin_explain', message: 'Please explain the check-in issue.' },
+        { radio: 'clean', explain: 'clean_explain', message: 'Please explain the cleanliness issue.' },
+        { radio: 'recommend', explain: 'recommend_explain', message: 'Please explain why you would not recommend us.' },
+      ];
+
+      for (let field of fieldsToValidate) {
+        const noChecked = document.querySelector(`input[name="${field.radio}"][value="No"]:checked`);
+        const explanation = document.querySelector(`textarea[name="${field.explain}"]`);
+        if (noChecked && explanation.value.trim() === '') {
+          alert(field.message);
+          explanation.focus();
+          e.preventDefault();
+          return;
+        }
+      }
+    });
+  </script>
+</body>
+</html>
