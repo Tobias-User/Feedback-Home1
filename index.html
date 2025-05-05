@@ -1,23 +1,10 @@
 <html lang="en">
  <head>
-   <meta name="color-scheme" content="light">
    <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Open+Sans&display=swap" rel="stylesheet">
    <meta charset="UTF-8" />
    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
    <title>Stay Feedback</title>
    <style>
-    @media (prefers-color-scheme: dark) {
-        body {
-          background-color: #749176;
-          font-family: 'Open Sans', sans-serif;
-          color: #fff;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          min-height: 100vh;
-          margin: 0;
-        }
-     }
      body {
        background-color: #749176;
        font-family: 'Open Sans', sans-serif;
@@ -146,9 +133,6 @@
    </div>
  
    <script>
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      document.documentElement.classList.remove('dark');
-     
      document.getElementById('feedback-form').addEventListener('submit', function(e) {
        const email = document.querySelector('input[name="email"]').value.trim();
        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
